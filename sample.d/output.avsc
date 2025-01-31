@@ -1,0 +1,8 @@
+{
+	"type":"record",
+	"name":"sample_rec",
+	"fields":[
+		{"name":"key", "type":"string"},
+		{"name":"val", "type":"long"}
+	]
+}
