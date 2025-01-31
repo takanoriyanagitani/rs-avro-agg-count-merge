@@ -1,0 +1,36 @@
+[package]
+name = "rs-avro-agg-count-merge"
+version = "0.1.0"
+edition = "2021"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+unwrap_used = "forbid"
+
+[profile.release-wasi]
+inherits = "release"
+lto = true
+strip = true
+opt-level = 's'
+codegen-units = 16
+
+[dependencies.apache-avro]
+version = "0.17.0"
+default-features = false
+features = [
+]
+
+[features]
+default = [
+	"enable_bzip",
+	"enable_xz",
+	"enable_zstd",
+	"enable_snappy",
+]
+
+enable_bzip = ["apache-avro/bzip"]
+enable_xz = ["apache-avro/xz"]
+enable_zstd = ["apache-avro/zstandard"]
+enable_snappy = ["apache-avro/snappy"]
